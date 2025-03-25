@@ -1,0 +1,3 @@
+function prevPage() {}
+
+function nextPage() {}

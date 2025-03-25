@@ -1,0 +1,295 @@
+/* -------------------------------- reset default padding, margin and box-sizing -------------------------------- */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* -------------------------------- light mode colors -------------------------------- */
+:root {
+    --bg-color: #F9F5ED;
+    --primary-color: #8A4F7D;
+    --secondary-color: #D6A2E8;
+    --text-color: #333333;
+    --accent-color: #E07A5F;
+    --card-bg: #FFFFFF;
+    --border-color: #E0E0E0;
+}
+
+/* -------------------------------- dark mode colors -------------------------------- */
+body.dark {
+    --bg-color: #1E1B18;
+    --primary-color: #C084FC;
+    --secondary-color: #9A6BBE;
+    --text-color: #F8F9FA;
+    --accent-color: #FF7D6D;
+    --card-bg: #2C2723;
+    --border-color: #44403C;
+
+    .filter-img {
+        filter: invert(1);
+    }
+
+    .card-shadow {
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* -------------------------------- default styles -------------------------------- */
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    width: 70%;
+    margin: auto;
+    transition: all 0.3s;
+
+    .filter-img {
+        filter: none;
+    }
+}
+
+body button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-color);
+    padding: 10px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+body button:hover {
+    border: 2px solid var(--accent-color);
+    transition: all 0.3s;
+}
+
+body img {
+    height: 20px;
+    width: 20px;
+}
+
+/* -------------------------------- navbar styles -------------------------------- */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px auto;
+}
+
+nav h1 {
+    font-size: 2rem;
+}
+
+/* -------------------------------- search bar styles -------------------------------- */
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    border: 2px solid var(--border-color);
+    padding: 10px;
+    border-radius: 10px;
+    width: 70%;
+}
+
+.search input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 1.25rem;
+    width: 100%;
+    color: var(--text-color);
+}
+
+.search:focus-within {
+    border: 2px solid var(--accent-color);
+}
+
+/* -------------------------------- theme button styles -------------------------------- */
+.nav-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-btns button {
+    border-radius: 50%;
+}
+
+/* -------------------------------- books section styles -------------------------------- */
+.books {
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* -------------------------------- books options styles -------------------------------- */
+.options {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.options h2 {
+    font-size: 1.75rem;
+}
+
+.optionBtns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.optionBtns button {
+    border-radius: 10px;
+}
+
+/* -------------------------------- books view options styles -------------------------------- */
+.view-selected {
+    border: 2px solid var(--accent-color);
+}
+
+/* -------------------------------- books sort options styles -------------------------------- */
+.sort-button {
+    position: relative;
+}
+
+.sort-options {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+    top: 120%;
+    left: -100%;
+    width: 6vw;
+    background-color: var(--card-bg);
+    translate: 0 -20%;
+    visibility: hidden;
+    opacity: 0;
+    padding: 10px 10px;
+    transition: all 0.5s;
+}
+
+.sort-button:hover {
+    .sort-options {
+        translate: 0%;
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.sort-options span {
+    text-align: start;
+    color: var(--text-color);
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.sort-options span:hover {
+    text-decoration: underline;
+}
+
+/* -------------------------------- all books view styles -------------------------------- */
+.all-books {
+    width: 100%;
+    gap: 20px;
+}
+
+/* -------------------------------- books grid view styles -------------------------------- */
+.books-grid-view {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    .book {
+        gap: 10px;
+        flex-direction: column;
+    }
+}
+
+/* -------------------------------- books list view styles -------------------------------- */
+.books-list-view {
+    display: flex;
+    flex-direction: column;
+
+    .book {
+        flex-direction: row;
+        gap: 0;
+    }
+}
+
+
+/* -------------------------------- book card styles -------------------------------- */
+.book-card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.card-shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* -------------------------------- book thumbnail styles -------------------------------- */
+.book-card img {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+}
+
+.book-card img:hover {
+    box-shadow: 0px 0px 10px 0px var(--primary-color);
+}
+
+/* -------------------------------- book information styles -------------------------------- */
+.book-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.book-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.book-details {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* -------------------------------- pagination styles -------------------------------- */
+.pagination {
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 10%;
+}
+
+.pagination button {
+    border-radius: 10px;
+}
+
+.page-no {
+    font-size: 1.5rem;
+}

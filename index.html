@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <h1>Books Library</h1>
+        <div class="search">
+            <img src="./assets/icons/search.svg" alt="Search" class="filter-img">
+            <input id="bookSearch" type="search" placeholder="Search Books by Title/Author">
+        </div>
+        <div class="nav-btns">
+            <button id="switchThemeBtn">
+                <img id="themeImg" src="./assets/icons/moon.svg" alt="Theme" class="filter-img">
+            </button>
+            <button id="openGitHubBtn">
+                <img src="./assets/icons/github.svg" alt="GitHub" class="filter-img">
+            </button>
+        </div>
+    </nav>
+
+    <!-- BOOKS SECTION -->
+    <section class="books">
+        <div class="options">
+            <h2>Books</h2>
+            <div class="optionBtns">
+                <button id="listViewBtn">
+                    <img src="./assets/icons/list.svg" alt="List" class="filter-img">
+                </button>
+                <button class="view-selected" id="gridViewBtn">
+                    <img src="./assets/icons/grid.svg" alt="Grid" class="filter-img">
+                </button>
+                <button class="sort-button" id="sortOptionsBtn">
+                    <img src="./assets/icons/sort.svg" alt="Sort" class="filter-img">
+                    <div id="sortOptions" class="sort-options hide-sort-options">
+                        <span id="sortByTitle">Title</span>
+                        <span id="sortByRelease">Release Date</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div id="allBooksContainer" class="all-books books-grid-view"></div>
+    </section>
+
+    <!-- PAGINATION SECTION -->
+    <section class="pagination">
+        <button class="previous-btn">
+            <img src="./assets/icons/previous.svg" alt="Previous" class="filter-img">
+        </button>
+        <span class="page-no">1</span>
+        <button class="forward-btn">
+            <img src="./assets/icons/forward.svg" alt="Forward" class="filter-img">
+        </button>
+    </section>
+
+    <script type="module" src="./assets/js/script.js"></script>
+</body>
+
+</html>
