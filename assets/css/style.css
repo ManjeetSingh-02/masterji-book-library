@@ -30,13 +30,8 @@ body.dark {
         filter: invert(1);
     }
 
-    .book-card,
-    .not-found {
-        background-color: var(--primary-color);
-    }
-
     .shadow {
-        box-shadow: 0px 0px 10px 0px var(--secondary-color);
+        box-shadow: 0px 0px 10px 0px var(--primary-color);
     }
 
     .shadow:hover {
@@ -56,13 +51,8 @@ body {
         filter: none;
     }
 
-    .book-card,
-    .not-found {
-        background-color: var(--secondary-color);
-    }
-
     .shadow {
-        box-shadow: 0px 0px 10px 0px var(--primary-color);
+        box-shadow: 0px 0px 10px 0px var(--secondary-color);
     }
 
     .shadow:hover {
@@ -251,6 +241,7 @@ nav h1 {
     width: 30%;
     padding: 15px 0;
     border-radius: 10px;
+    background-color: var(--card-bg);
 }
 
 /* -------------------------------- all books view styles -------------------------------- */
@@ -292,6 +283,7 @@ nav h1 {
     gap: 15px;
     padding: 15px;
     border-radius: 10px;
+    background-color: var(--card-bg);
 }
 
 /* -------------------------------- book thumbnail styles -------------------------------- */
