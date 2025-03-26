@@ -1,8 +1,11 @@
+// import required variables
+import { fetchedBooks, paginationObj } from "./constants.js";
+
 // import all the functions from other files
 import { loadTheme, switchTheme } from "./themeFns.js";
 import { loadBooks, searchBooks } from "./booksFns.js";
 import { loadLayout, switchLayout } from "./layoutFns.js";
-import { nextPage, prevPage } from "./paginationFns.js";
+import { nextPage, prevPage, checkPages } from "./paginationFns.js";
 import sortBooks from "./sortFns.js";
 
 // get all the elements from their id's
@@ -15,9 +18,6 @@ const sortByTitle = document.getElementById("sortByTitle");
 const sortByRelease = document.getElementById("sortByRelease");
 const previousPageBtn = document.getElementById("previousPageBtn");
 const nextPageBtn = document.getElementById("nextPageBtn");
-
-// array to store books
-const fetchedBooks = [];
 
 // search books on typing input
 bookSearch.addEventListener("input", (event) => searchBooks(event, fetchedBooks));
@@ -37,11 +37,17 @@ sortByTitle.addEventListener("click", () => sortBooks("title", fetchedBooks));
 sortByRelease.addEventListener("click", () => sortBooks("release", fetchedBooks));
 
 // move to different pages on click
-previousPageBtn.addEventListener("click", prevPage);
-nextPageBtn.addEventListener("click", nextPage);
+previousPageBtn.addEventListener("click", () => {
+  prevPage();
+  checkPages(previousPageBtn, nextPageBtn);
+});
+nextPageBtn.addEventListener("click", () => {
+  nextPage();
+  checkPages(previousPageBtn, nextPageBtn);
+});
 
 // load the default functionality when page loads first time
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   // if not present, store default empty object in localstorage
   if (!localStorage.getItem("booksLibrary")) localStorage.setItem("booksLibrary", JSON.stringify({}));
 
@@ -52,5 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
   loadLayout();
 
   // load default books
-  loadBooks(fetchedBooks);
+  await loadBooks(fetchedBooks);
+
+  // update total no of pages
+  paginationObj.totalPages = fetchedBooks.length;
+
+  // check for multiple pages for pagination
+  checkPages(previousPageBtn, nextPageBtn);
 });

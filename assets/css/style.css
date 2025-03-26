@@ -89,6 +89,14 @@ body img {
     width: 20px;
 }
 
+.btn-disabled {
+    cursor: not-allowed;
+}
+
+.btn-disabled:hover {
+    border: 2px solid var(--border-color);
+}
+
 /* -------------------------------- navbar styles -------------------------------- */
 nav {
     display: flex;

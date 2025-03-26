@@ -1,11 +1,11 @@
+// import required variables
+import { localStorageObj } from "./constants.js";
+
 // get element from the id
 const themeImg = document.getElementById("themeImg");
 
 // load default theme function
 function loadTheme() {
-  // get default object
-  const localStorageObj = JSON.parse(localStorage.getItem("booksLibrary"));
-
   // sets default theme to light mode
   if (!localStorageObj.theme) {
     localStorageObj.theme = "light";

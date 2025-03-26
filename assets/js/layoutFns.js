@@ -1,3 +1,6 @@
+// import required variables
+import { localStorageObj } from "./constants.js";
+
 // get elements from their id's
 const listViewBtn = document.getElementById("listViewBtn");
 const gridViewBtn = document.getElementById("gridViewBtn");
@@ -5,9 +8,6 @@ const allBooksContainer = document.getElementById("allBooksContainer");
 
 // function to load the layout
 function loadLayout() {
-  // get default object
-  const localStorageObj = JSON.parse(localStorage.getItem("booksLibrary"));
-
   // set default layout to grid
   if (!localStorageObj.booksLayout) {
     localStorageObj.booksLayout = "grid";

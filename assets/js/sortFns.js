@@ -1,17 +1,23 @@
 // function to sort books by title
 function sortBooks(type, fetchedBooks) {
-  // variables to store sorted books and sort type
-  let sortedBooks, elementType;
+  // variable to store sorted books
+  const sortedBooks = [];
+
+  // variable to store sort type
+  let elementType;
+
+  // store all unsorted books in an array to sort
+  fetchedBooks.forEach((bookSet) => bookSet.forEach((book) => sortedBooks.push(book)));
 
   if (type === "title") {
     // store sorted books on basis of title
-    sortedBooks = fetchedBooks.sort((a, b) => a.title.localeCompare(b.title));
+    sortedBooks.sort((a, b) => a.title.localeCompare(b.title));
 
     // set the element type to title for searching in HTML elements
     elementType = "title";
   } else {
     // store sorted books on basis of published date
-    sortedBooks = fetchedBooks.sort((a, b) => new Date(a.publishedDate) - new Date(b.publishedDate));
+    sortedBooks.sort((a, b) => new Date(a.publishedDate) - new Date(b.publishedDate));
 
     // set the element type to published date for searching in HTML elements
     elementType = "publishedDate";
