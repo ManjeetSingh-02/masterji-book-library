@@ -3,6 +3,8 @@ import { paginationObj, fetchedBooks } from "./constants.js";
 
 // get element from the id
 const allBooksContainer = document.getElementById("allBooksContainer");
+const loader = document.getElementById("loader");
+const notFound = document.getElementById("notFound");
 
 // function to fetch books
 async function fetchBooks() {
@@ -77,6 +79,9 @@ async function createBookSets() {
 // function to load books
 async function loadBooks() {
   await createBookSets();
+
+  // hide the loader when data loaded
+  loader.style.display = "none";
 
   // add the book into container
   fetchedBooks[0].forEach((book) => addBook(book));
@@ -159,8 +164,15 @@ function searchBooks(event) {
     })
   );
 
-  // add the required books inside container
-  searchedBooks.forEach((book) => addBook(book));
+  // if no books found, show not found message
+  if (searchedBooks.length === 0) notFound.style.display = "block";
+  else {
+    // hide not found message
+    notFound.style.display = "none";
+
+    // add the required books inside container
+    searchedBooks.forEach((book) => addBook(book));
+  }
 }
 
 // export functions

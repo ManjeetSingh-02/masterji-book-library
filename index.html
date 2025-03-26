@@ -12,10 +12,14 @@
     <!-- NAVBAR -->
     <nav>
         <h1>Books Library</h1>
+
+        <!-- search bar -->
         <div class="search">
             <img src="./assets/icons/search.svg" alt="Search" class="filter-img">
             <input id="bookSearch" type="search" placeholder="Search Books by Title/Author">
         </div>
+
+        <!-- theme and github buttons -->
         <div class="nav-btns">
             <button id="switchThemeBtn">
                 <img id="themeImg" src="./assets/icons/moon.svg" alt="Theme" class="filter-img">
@@ -30,6 +34,8 @@
     <section class="books">
         <div class="options">
             <h2>Books</h2>
+
+            <!-- layout and sort option buttons -->
             <div class="optionBtns">
                 <button id="listViewBtn">
                     <img src="./assets/icons/list.svg" alt="List" class="filter-img">
@@ -41,22 +47,34 @@
                     <img src="./assets/icons/sort.svg" alt="Sort" class="filter-img">
                     <div id="sortOptions" class="sort-options hide-sort-options">
                         <span id="sortByTitle">Title</span>
-                        <span id="sortByRelease">Release Date</span>
+                        <span id="sortByRelease">Date</span>
                         <span id="sortByDefault">Reset</span>
                     </div>
                 </button>
             </div>
         </div>
 
+        <!-- loader -->
+        <span id="loader" class="loader"></span>
+
+        <!-- not found message -->
+        <span id="notFound" class="not-found shadow">No books found!</span>
+
+        <!-- books container -->
         <div id="allBooksContainer" class="all-books books-grid-view"></div>
     </section>
 
     <!-- PAGINATION SECTION -->
     <section class="pagination">
+        <!-- pagination previous button -->
         <button id="previousPageBtn" class="previous-btn">
             <img src="./assets/icons/previous.svg" alt="Previous" class="filter-img">
         </button>
+
+        <!-- page no -->
         <span id="pageNo" class="page-no">1</span>
+
+        <!-- pagination next button -->
         <button id="nextPageBtn" class="forward-btn">
             <img src="./assets/icons/forward.svg" alt="Forward" class="filter-img">
         </button>

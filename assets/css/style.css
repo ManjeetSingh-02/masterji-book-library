@@ -30,7 +30,8 @@ body.dark {
         filter: invert(1);
     }
 
-    .book-card {
+    .book-card,
+    .not-found {
         background-color: var(--primary-color);
     }
 
@@ -55,7 +56,8 @@ body {
         filter: none;
     }
 
-    .book-card {
+    .book-card,
+    .not-found {
         background-color: var(--secondary-color);
     }
 
@@ -90,6 +92,7 @@ body img {
 
 .btn-disabled {
     cursor: not-allowed;
+    opacity: 0.2;
 }
 
 .btn-disabled:hover {
@@ -227,6 +230,29 @@ nav h1 {
     text-decoration: underline;
 }
 
+/* -------------------------------- loader styles -------------------------------- */
+.loader {
+    display: block;
+    align-self: center;
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-top: 5px solid black;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* -------------------------------- not found styles -------------------------------- */
+.not-found {
+    display: none;
+    margin: auto;
+    font-size: 2rem;
+    text-align: center;
+    width: 30%;
+    padding: 15px 0;
+    border-radius: 10px;
+}
+
 /* -------------------------------- all books view styles -------------------------------- */
 .all-books {
     width: 100%;
@@ -311,4 +337,15 @@ nav h1 {
 
 .page-no {
     font-size: 1.5rem;
+}
+
+/* -------------------------------- animation keyframes styles -------------------------------- */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
