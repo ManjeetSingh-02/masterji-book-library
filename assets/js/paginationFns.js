@@ -37,12 +37,12 @@ function nextPage() {
 }
 
 // function to change page and update books on click
-function changePage(currentPage) {
+function changePage(pageIndex) {
   // remove all the previous books from container
   allBooksContainer.innerHTML = "";
 
   // add the book into container
-  fetchedBooks[currentPage].forEach((book) => addBook(book));
+  fetchedBooks[pageIndex].forEach((book) => addBook(book));
 }
 
 function checkPages(previousPageBtn, nextPageBtn) {

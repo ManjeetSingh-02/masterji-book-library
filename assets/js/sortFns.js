@@ -1,5 +1,8 @@
+// import required variables
+import { fetchedBooks } from "./constants.js";
+
 // function to sort books by title
-function sortBooks(type, fetchedBooks) {
+function sortBooks(type) {
   // variable to store sorted books
   const sortedBooks = [];
 
@@ -42,5 +45,20 @@ function sortBooks(type, fetchedBooks) {
   });
 }
 
+function resetBooks() {
+  fetchedBooks.forEach((bookSet) =>
+    bookSet.forEach((book) => {
+      // find books
+      const findBooksElement = document.querySelectorAll(`[title="${book.title}"]`);
+
+      // get each book element if multiple found
+      findBooksElement.forEach((bookElement) => {
+        // change order of current book
+        bookElement.style.order = 1;
+      });
+    })
+  );
+}
+
 // export functions
-export default sortBooks;
+export { resetBooks, sortBooks };

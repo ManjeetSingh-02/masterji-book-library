@@ -6,7 +6,7 @@ import { loadTheme, switchTheme } from "./themeFns.js";
 import { loadBooks, searchBooks } from "./booksFns.js";
 import { loadLayout, switchLayout } from "./layoutFns.js";
 import { nextPage, prevPage, checkPages } from "./paginationFns.js";
-import sortBooks from "./sortFns.js";
+import { sortBooks, resetBooks } from "./sortFns.js";
 
 // get all the elements from their id's
 const switchThemeBtn = document.getElementById("switchThemeBtn");
@@ -16,11 +16,12 @@ const gridViewBtn = document.getElementById("gridViewBtn");
 const bookSearch = document.getElementById("bookSearch");
 const sortByTitle = document.getElementById("sortByTitle");
 const sortByRelease = document.getElementById("sortByRelease");
+const sortByDefault = document.getElementById("sortByDefault");
 const previousPageBtn = document.getElementById("previousPageBtn");
 const nextPageBtn = document.getElementById("nextPageBtn");
 
 // search books on typing input
-bookSearch.addEventListener("input", (event) => searchBooks(event, fetchedBooks));
+bookSearch.addEventListener("input", (event) => searchBooks(event));
 
 // switch theme on click of the button
 switchThemeBtn.addEventListener("click", switchTheme);
@@ -33,8 +34,9 @@ listViewBtn.addEventListener("click", () => switchLayout("list"));
 gridViewBtn.addEventListener("click", () => switchLayout("grid"));
 
 // sort books order on click
-sortByTitle.addEventListener("click", () => sortBooks("title", fetchedBooks));
-sortByRelease.addEventListener("click", () => sortBooks("release", fetchedBooks));
+sortByTitle.addEventListener("click", () => sortBooks("title"));
+sortByRelease.addEventListener("click", () => sortBooks("release"));
+sortByDefault.addEventListener("click", resetBooks);
 
 // move to different pages on click
 previousPageBtn.addEventListener("click", () => {
@@ -58,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   loadLayout();
 
   // load default books
-  await loadBooks(fetchedBooks);
+  await loadBooks();
 
   // update total no of pages
   paginationObj.totalPages = fetchedBooks.length;

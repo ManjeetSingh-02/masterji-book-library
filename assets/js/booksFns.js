@@ -1,5 +1,5 @@
 // import required variables
-import { paginationObj } from "./constants.js";
+import { paginationObj, fetchedBooks } from "./constants.js";
 
 // get element from the id
 const allBooksContainer = document.getElementById("allBooksContainer");
@@ -30,7 +30,7 @@ async function fetchBooks() {
 }
 
 // function to create book sets books
-async function createBookSets(fetchedBooks) {
+async function createBookSets() {
   // get fetched books from API
   const fetchedData = await fetchBooks();
   const books = fetchedData.data.data;
@@ -75,8 +75,8 @@ async function createBookSets(fetchedBooks) {
 }
 
 // function to load books
-async function loadBooks(fetchedBooks) {
-  await createBookSets(fetchedBooks);
+async function loadBooks() {
+  await createBookSets();
 
   // add the book into container
   fetchedBooks[0].forEach((book) => addBook(book));
@@ -141,7 +141,7 @@ function addBook({ title, author, publisher, publishedDate, thumbnail, infoLink 
 }
 
 // function to search books
-function searchBooks(event, fetchedBooks) {
+function searchBooks(event) {
   // remove all the books from container
   allBooksContainer.innerHTML = "";
 
