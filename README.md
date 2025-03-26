@@ -35,11 +35,11 @@
 - Functionality to **switch b/w light and dark theme** by clicking on **Theme Icon Button**
 - Functionality to **fetch books and its data from API** and **display it to user** as a book card
 - Functionality to **switch b/w list layout or grid layout of books** for user
-- Functionality to **search books** by typing inside **search bar**
+- Functionality to **search books** by typing **book title** or **book author** inside **search bar**
 - Functionality to **sort books** by clicking on **Sort Button**
 - Sort button has multiple options:
-  - Sort by **Book Name**
-  - Sort by **Author Name**
+  - Sort by **Book Title**
+  - Sort by **Book Published Date**
   - **Reset** books order
 - Each book card will contain the following information:
   - **Title** of the book
