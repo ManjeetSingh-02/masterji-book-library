@@ -30,8 +30,16 @@ body.dark {
         filter: invert(1);
     }
 
-    .card-shadow {
-        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    .book-card {
+        background-color: var(--primary-color);
+    }
+
+    .shadow {
+        box-shadow: 0px 0px 10px 0px var(--secondary-color);
+    }
+
+    .shadow:hover {
+        box-shadow: 0px 0px 10px 0px var(--accent-color);
     }
 }
 
@@ -46,6 +54,18 @@ body {
 
     .filter-img {
         filter: none;
+    }
+
+    .book-card {
+        background-color: var(--secondary-color);
+    }
+
+    .shadow {
+        box-shadow: 0px 0px 10px 0px var(--primary-color);
+    }
+
+    .shadow:hover {
+        box-shadow: 0px 0px 10px 0px var(--accent-color);
     }
 }
 
@@ -241,19 +261,11 @@ nav h1 {
     border-radius: 10px;
 }
 
-.card-shadow {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
 /* -------------------------------- book thumbnail styles -------------------------------- */
 .book-card img {
     width: auto;
     height: auto;
     border-radius: 10px;
-}
-
-.book-card img:hover {
-    box-shadow: 0px 0px 10px 0px var(--primary-color);
 }
 
 /* -------------------------------- book information styles -------------------------------- */

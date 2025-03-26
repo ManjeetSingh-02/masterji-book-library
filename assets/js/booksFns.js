@@ -77,7 +77,7 @@ async function loadBooks(fetchedBooks) {
 function addBook({ title, author, publisher, publishedDate, thumbnail, infoLink }) {
   // create div for book
   const bookCard = document.createElement("div");
-  bookCard.classList.add("book-card", "card-shadow");
+  bookCard.classList.add("book-card", "shadow");
   bookCard.style.order = 1;
   bookCard.setAttribute("title", `${title}`);
   bookCard.setAttribute("publishedDate", `${publishedDate}`);
@@ -89,6 +89,7 @@ function addBook({ title, author, publisher, publishedDate, thumbnail, infoLink 
 
   // create image element for thumbnail
   const img = document.createElement("img");
+  img.classList.add("shadow");
   img.src = thumbnail;
   img.alt = title;
 
