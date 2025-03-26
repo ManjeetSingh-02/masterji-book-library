@@ -43,7 +43,7 @@ body.dark {
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    width: 70%;
+    width: 90%;
     margin: auto;
     transition: all 0.3s;
 
@@ -111,7 +111,7 @@ nav h1 {
     border: 2px solid var(--border-color);
     padding: 10px;
     border-radius: 10px;
-    width: 70%;
+    width: 50%;
 }
 
 .search input {
@@ -191,8 +191,6 @@ nav h1 {
     border: 2px solid var(--accent-color);
     border-radius: 10px;
     top: 120%;
-    left: -100%;
-    width: 6vw;
     background-color: var(--card-bg);
     translate: 0 -20%;
     visibility: hidden;
@@ -236,9 +234,9 @@ nav h1 {
 .not-found {
     display: none;
     margin: auto;
-    font-size: 2rem;
+    font-size: 1.75rem;
     text-align: center;
-    width: 30%;
+    width: 60%;
     padding: 15px 0;
     border-radius: 10px;
     background-color: var(--card-bg);
@@ -339,5 +337,67 @@ nav h1 {
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+
+/* -------------------------------- media styles for responsiveness -------------------------------- */
+@media screen and (max-width: 1536px) {
+    .books-grid-view {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .book-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .book-card {
+        flex-direction: column;
+    }
+
+    .book-info {
+        align-items: center;
+    }
+
+    .book-title,
+    .book-details {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav h1,
+    .not-found,
+    .options {
+        font-size: 1.5rem;
+    }
+
+    .search {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .not-found {
+        font-size: 1.25rem;
+    }
+
+    .search {
+        width: 90%;
+    }
+
+    .books-grid-view {
+        grid-template-columns: 1fr;
     }
 }
