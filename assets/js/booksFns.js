@@ -32,6 +32,12 @@ async function loadBooks(fetchedBooks) {
   const fetchedData = await fetchBooks();
   const books = fetchedData.data.data;
 
+  // counter
+  let i = 0;
+
+  // array to store set of 9 books
+  let bookSet = [];
+
   // details of each book
   books.forEach((book) => {
     // create object of book details
@@ -44,12 +50,28 @@ async function loadBooks(fetchedBooks) {
       infoLink: book.volumeInfo.infoLink,
     };
 
+    // check for completion of set till books are available
+    if (i == 9) {
+      // store set of books to main array
+      fetchedBooks.push(bookSet);
+
+      // reset counter and book set
+      i = 0;
+      bookSet = [];
+    }
+
     // store the details in an array
-    fetchedBooks.push(bookDetailsObj);
+    bookSet.push(bookDetailsObj);
 
     // add the book into container
     addBook(bookDetailsObj);
+
+    // increase counter
+    i++;
   });
+
+  // if any set left, push to main array
+  if (bookSet) fetchedBooks.push(bookSet);
 }
 
 function addBook({ title, author, publisher, publishedDate, thumbnail, infoLink }) {
@@ -117,13 +139,19 @@ function searchBooks(event, fetchedBooks) {
   // get book title or author from the search input
   const searchedText = event.target.value.toLowerCase().trim();
 
+  // array to store searched books
+  const searchedBooks = [];
+
   // find the required books from all books array based on the search input
-  const searchedBooksbyTitle = fetchedBooks.filter((book) => book.title.toLowerCase().includes(searchedText));
-  const searchedBooksbyAuthor = fetchedBooks.filter((book) => book.author.toLowerCase().includes(searchedText));
+  fetchedBooks.forEach((bookSet) =>
+    bookSet.filter((book) => {
+      // if book title or author matched then push to searched array
+      if (book.title.toLowerCase().includes(searchedText) || book.author.toLowerCase().includes(searchedText)) searchedBooks.push(book);
+    })
+  );
 
   // add the required books inside container
-  searchedBooksbyTitle.forEach((book) => addBook(book));
-  searchedBooksbyAuthor.forEach((book) => addBook(book));
+  searchedBooks.forEach((book) => addBook(book));
 }
 
 // export functions
