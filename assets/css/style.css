@@ -44,7 +44,6 @@ body.dark {
 }
 
 /* -------------------------------- default styles -------------------------------- */
-
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -135,7 +134,7 @@ nav h1 {
     border: 2px solid var(--accent-color);
 }
 
-/* -------------------------------- theme button styles -------------------------------- */
+/* -------------------------------- nav button styles -------------------------------- */
 .nav-btns {
     display: flex;
     align-items: center;
