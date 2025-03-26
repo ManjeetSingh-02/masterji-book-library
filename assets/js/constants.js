@@ -1,6 +1,3 @@
-// get default object
-const localStorageObj = JSON.parse(localStorage.getItem("booksLibrary"));
-
 // array to store books
 const fetchedBooks = [];
 
@@ -11,9 +8,6 @@ const paginationObj = {
 
   // to check no of books in each set
   booksPerSet: 9,
-
-  // total no of books per page
-  booksPerPage: 9,
 };
 
-export { localStorageObj, fetchedBooks, paginationObj };
+export { fetchedBooks, paginationObj };
