@@ -1,5 +1,11 @@
-// import required variables
-import { paginationObj } from "./constants.js";
+// import required variable
+import { fetchedBooks, paginationObj } from "./constants.js";
+
+// import required function
+import { addBook } from "./booksFns.js";
+
+// get element from the id
+const allBooksContainer = document.getElementById("allBooksContainer");
 
 // get elements from their id's
 const pageNo = document.getElementById("pageNo");
@@ -8,24 +14,40 @@ let currentPage = 1;
 
 // function to go to previous page
 function prevPage() {
+  // decrease current page
   currentPage--;
-  changePage(currentPage);
+
+  // move to that page (currentPage - 1 for 0-based indexing)
+  changePage(currentPage - 1);
+
+  // update page no
   pageNo.textContent = currentPage;
 }
 
 // function to go to next page
 function nextPage() {
+  // increase current page
   currentPage++;
-  changePage(currentPage);
+
+  // move to that page (currentPage - 1 for 0-based indexing)
+  changePage(currentPage - 1);
+
+  // update page no
   pageNo.textContent = currentPage;
 }
 
-// function to change page on click
-function changePage(currentPage) {}
+// function to change page and update books on click
+function changePage(currentPage) {
+  // remove all the previous books from container
+  allBooksContainer.innerHTML = "";
+
+  // add the book into container
+  fetchedBooks[currentPage].forEach((book) => addBook(book));
+}
 
 function checkPages(previousPageBtn, nextPageBtn) {
   // if only single page, then disable buttons
-  if (currentPage === 1) {
+  if (paginationObj.totalPages === 1) {
     // set disabled attribute to true
     previousPageBtn.disabled = true;
 
@@ -38,17 +60,31 @@ function checkPages(previousPageBtn, nextPageBtn) {
     // add disabled class
     nextPageBtn.classList.add("btn-disabled");
   } else {
-    // set disabled attribute to false
-    previousPageBtn.disabled = false;
+    if (currentPage === 1) {
+      // set disabled attribute to true
+      previousPageBtn.disabled = true;
 
-    // remove disabled class
-    previousPageBtn.classList.remove("btn-disabled");
+      // add disabled class
+      previousPageBtn.classList.add("btn-disabled");
+    } else if (currentPage === paginationObj.totalPages) {
+      // set disabled attribute to true
+      nextPageBtn.disabled = true;
 
-    // set disabled attribute to false
-    nextPageBtn.disabled = false;
+      // add disabled class
+      nextPageBtn.classList.add("btn-disabled");
+    } else {
+      // set disabled attribute to false
+      previousPageBtn.disabled = false;
 
-    // remove disabled class
-    nextPageBtn.classList.remove("btn-disabled");
+      // remove disabled class
+      previousPageBtn.classList.remove("btn-disabled");
+
+      // set disabled attribute to false
+      nextPageBtn.disabled = false;
+
+      // remove disabled class
+      nextPageBtn.classList.remove("btn-disabled");
+    }
   }
 }
 

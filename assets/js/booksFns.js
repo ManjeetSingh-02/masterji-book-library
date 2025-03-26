@@ -164,4 +164,4 @@ function searchBooks(event, fetchedBooks) {
 }
 
 // export functions
-export { loadBooks, searchBooks };
+export { loadBooks, searchBooks, addBook };
